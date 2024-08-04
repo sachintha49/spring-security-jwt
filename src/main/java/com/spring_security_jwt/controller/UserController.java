@@ -2,7 +2,7 @@ package com.spring_security_jwt.controller;
 
 import com.spring_security_jwt.entity.User;
 import com.spring_security_jwt.service.UserService;
-import jakarta.annotation.PostConstruct;
+import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

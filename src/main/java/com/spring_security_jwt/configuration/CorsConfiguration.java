@@ -7,6 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class CorsConfiguration {
+    //api me tikata access dunna. neththam security visin meka block karala thiyenne
     private static final String GET = "GET";
     private static final String POST = "POST";
     private static final String PUT = "PUT";
@@ -18,6 +19,7 @@ public class CorsConfiguration {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
+                //meketh methods, ehaders, patterns walatath access dunna 
             registry.addMapping("/**")
                     .allowedMethods(GET,POST,PUT,DELETE)
                     .allowedHeaders("*")
