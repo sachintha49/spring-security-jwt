@@ -4,6 +4,7 @@ import com.spring_security_jwt.entity.User;
 import com.spring_security_jwt.service.UserService;
 import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -23,12 +24,14 @@ public class UserController {
         userService.initRoleAndUser();
     }
 
-    @GetMapping({"for-admin"})
+    @GetMapping({"/for-admin"})
+    @PreAuthorize("hasRole('Admin')")
     public String forAdmin(){
         return "this url is only accessible to admin";
     }
 
-    @GetMapping({"for-user"})
+    @GetMapping({"/for-user"})
+    @PreAuthorize("hasAnyRole('User','Admin')")
     public String forUser(){
         return "this url is only accessible to user";
     }
